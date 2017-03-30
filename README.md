@@ -129,8 +129,8 @@ The site map
 
 
 
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
+1. [passport.js authentication docs](http://passportjs.org/docs)
 2. [tutorial on Mocha](https://github.com/mochajs/mocha)
-3. [tutorial on Sess](http://sass-lang.com/guide) - (add link to source code that was based on this)
+3. [tutorial on Sess](http://sass-lang.com/guide)
 
 
