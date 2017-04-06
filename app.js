@@ -3,6 +3,8 @@ require('./db');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const Question = mongoose.model('Question');
 
 const app = express();
 
@@ -25,8 +27,25 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routes handler
 app.get('/', (req, res) => {
-  res.render('index');
+    Question.find({}, (err, questions) => {
+        res.render('index', {questions: questions});
+    });
 });
 
-app.listen(3000);
+app.post('/createQuestion', (req, res) => {
+    const question = new Question({
+        flashcard: req.body.flashcard,
+        blank: req.body.blank,
+        festival: req.body.festival
+    });
+    question.save((err) => {
+        if(err) {
+            res.send(err);
+        }
+        res.redirect('/');
+    });
+});
+
+app.listen(process.env.PORT || 3000);
