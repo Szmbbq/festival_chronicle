@@ -16,6 +16,17 @@
     </div>
 </form>
 
+<form method="POST" action="/deleteQuestion" id="deleteForm">
+    <div>
+        Choose one to delete: <select name="delete" form="deleteForm">
+            {{#each questions}}
+                <option value={{this._id}}>{{this.flashcard}}</option>
+            {{/each}}
+            <input type="submit" value="Delete">
+        </select>
+    </div>
+</form>
+
 {{#if questions}}
     <h4>Existing Flashcards</h4>
     <ol>
