@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Question = require('../models/question');
+
 // review flashcards
 router.get('/flashcards', ensureAuthenticated, function(req, res) {
     Question.find({}, (err, questions) => {
