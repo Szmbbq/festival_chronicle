@@ -83,59 +83,13 @@ app.use('/', indexRoutes);
 app.use('/', userRoutes);
 app.use('/', functionsRoutes);
 
-// Use the GoogleStrategy within Passport
-// passport.use(new GoogleStrategy({
-//     clientID: GOOGLE_CLIENT_ID,
-//     clientSecret: GOOGLE_CLIENT_SECRET,
-//     callbackURL: "/auth/google/callback"
-// }, function(accessToken, refreshToken, profile, done) {
-//     User.findOne({gooleId: profile.id}, function(err, user) {
-//         return done(err, user);
-//     });
-// }));
 
-// routes handler
-// app.get('/', (req, res) => {
-//     Question.find({}, (err, questions) => {
-//         if(err) {
-//             console.log(err);
-//         }
-//         res.render('index', {questions: questions});
-//     });
-// });
 
 app.get('/login', (req, res) => {
     res.render('login');
 });
 
-// app.post('/createQuestion', (req, res) => {
-//     const question = new Question({
-//         flashcard: req.body.flashcard,
-//         blank: req.body.blank,
-//         festival: req.body.festival
-//     });
-//     question.save((err) => {
-//         if(err) {
-//             res.send(err);
-//         }
-//         res.redirect('/');
-//     });
-// });
 
-// app.post('/deleteQuestion', (req, res) => {
-//     Question.deleteOne({_id: req.body.delete}, function(err, question) {
-//         if(err) {
-//             res.send(err);
-//         }
-//         res.redirect('/');
-//     });
-// });
-
-// app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.googleapis.com/auth/plus.login']}));
-
-// app.get('/auth/google/callback', passport.authenticate('google', {failureRedirect: '/login'}), function(req, res) {
-//     res.redirect('/');
-// });
 
 // set port
 app.listen(process.env.PORT || 3000);
