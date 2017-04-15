@@ -1,4 +1,5 @@
 node_modules
+GOOGLE_AUTH.js
 .DS_Store
 *.swp
 config.json
