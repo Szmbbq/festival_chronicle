@@ -1,7 +1,5 @@
-<h1>Festival Chronicles Homepage</h1>
-
-
-<form method="POST" action="/createQuestion">
+<h3>Hello {{name}}!</h3><a href="/logout">Logout</a>
+{{!--<form method="POST" action="/createQuestion">
     <div>
         The flashcard: <input type="text" name="flashcard" style="height:50px;width:500px;font-size:14pt;">
     </div>
@@ -25,13 +23,17 @@
             <input type="submit" value="Delete">
         </select>
     </div>
-</form>
+</form>--}}
+</br>
+<a href="/flashcards">Review Flashcards</a>
+</br>
+<a href="/createQuestion">Create a new question</a>
+</br>
+<a href="/deleteQuestion">Delete existing questions</a>
 
-{{#if questions}}
-    <h4>Existing Flashcards</h4>
-    <ol>
-        {{#each questions}}
-        <li>{{this.flashcard}}</li>
-        {{/each}}
-    </ol>
-{{/if}}
+
+
+
+
+
+

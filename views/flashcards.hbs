@@ -1,0 +1,14 @@
+{{#if questions}}
+    <h4>Existing Flashcards</h4>
+    <ol>
+        {{#each questions}}
+        <li>{{this.flashcard}}</li>
+        {{/each}}
+    </ol>
+{{else}}
+    <h4>No Flashcards Exist. Go and Create One!</h4>
+{{/if}}
+
+
+
+<a href="/">Go back to your homwpage</a>

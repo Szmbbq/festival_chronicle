@@ -1,13 +1,13 @@
-// config/passport.js
+// passport.js
 
 // load all the things we need
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 // load up the user model
-var User = require('../app/models/user');
+// const User = require('../app/models/user');
 
 // load the auth variables
-var configAuth = require('./auth');
+const configAuth = require('./auth');
 
 module.exports = function(passport) {
 
@@ -24,6 +24,22 @@ module.exports = function(passport) {
     });
     
     // code for login (use('local-login', new LocalStategy))
+    passport.use('local-signup', new LocalStrategy({
+        usernameField: 'email',
+        passwordField: 'password',
+        passReqToCallback: true
+    }, function(req, email, password, done) {
+        process.nextTick(function() {
+            User.findOne({'local.username': email}, function(err, user) {
+                if(err) {
+                    return done(err);
+                }
+                if(user) {
+                    return done(null, false, req)
+                }
+            });
+        });
+    }));
     // code for signup (use('local-signup', new LocalStategy))
     // code for facebook (use('facebook', new FacebookStrategy))
     // code for twitter (use('twitter', new TwitterStrategy))

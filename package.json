@@ -18,12 +18,15 @@
   "homepage": "https://github.com/nyu-csci-ua-0480-008-spring-2017/zs720-final-project#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "connect-flash": "^0.1.1",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
+    "express-validator": "^3.1.3",
     "hbs": "^4.0.1",
     "mongoose": "^4.9.3",
     "mongoose-url-slugs": "^0.2.1",
     "passport": "^0.3.2",
-    "passport-google-oauth": "^1.0.0"
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0"
   }
 }

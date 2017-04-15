@@ -1,0 +1,16 @@
+{{#if questions}}
+<form method="POST" action="/deleteQuestion" id="deleteForm">
+    <div>
+        Choose one to delete: <select name="delete" form="deleteForm">
+            {{#each questions}}
+                <option value={{this._id}}>{{this.flashcard}}</option>
+            {{/each}}
+            <input type="submit" value="Delete">
+        </select>
+    </div>
+</form>
+{{else}}
+<h4>No questions can be removed.</h4>
+{{/if}}
+
+<a href="/">Go back to your homepage</a>
