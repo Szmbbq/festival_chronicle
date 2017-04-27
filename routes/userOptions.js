@@ -1,3 +1,4 @@
+// bring in modules and schemas
 const express = require('express');
 const router = express.Router();
 const Question = require('../models/question');
@@ -12,23 +13,17 @@ router.get('/flashcards', ensureAuthenticated, function(req, res) {
     });
 });
 
-// create question
+// create question (need authentication)
 router.get('/createQuestion', ensureAuthenticated, function(req, res) {
     res.render('createQuestion');
 });
 
+// handle create question form (check if the question is valid, redirect to homepage if success)
 router.post('/createQuestion', ensureAuthenticated, function(req, res) {
     const checkResult = hf.isValidQuestion(req.body.flashcard, req.body.blank);
     const invalidWords = [];
-    // checkResult.forEach(ele => {
-    //     if(ele !== true) {
-    //         invalidWords.push(ele);
-    //     }
-    // });
-    // if(invalidWords.length !== true) {
     if(checkResult !== true) {
         invalidWords.push(checkResult);
-        // console.log(invalidWords);
         res.render('createQuestion', {invalidWords: invalidWords});
     } else {
         const question = new Question({
@@ -54,6 +49,7 @@ router.get('/deleteQuestion', ensureAuthenticated, function(req, res) {
     });
 });
 
+// handle the remove flashcard form
 router.post('/deleteQuestion', ensureAuthenticated, function(req, res) {
     Question.deleteOne({_id: req.body.delete}, function(err, question) {
         if(err) {
@@ -85,7 +81,7 @@ router.get('/quiz', ensureAuthenticated, function(req, res) {
     });
 });
 
-// show quiz result
+// show quiz result and calculate user stats
 router.post('/quizResult', function(req, res) {
     const keys = req.body.keys.split('&nbsp').join(' ').split(',');
     const answers = req.body.answers.map(ele => {
@@ -106,7 +102,7 @@ router.post('/quizResult', function(req, res) {
             if(err) {
                 res.send(err);
             }
-            res.render('quizResult', {thisTime: result, accumulative: user.stats});
+            res.render('quizResult', {thisTime: result, accumulative: user.stats, keys: keys, answers: answers});
         })
     });
 });

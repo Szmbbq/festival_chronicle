@@ -1,38 +1,29 @@
 const nlp = require('compromise');
 
+// check if the question is valid
 function isValidQuestion(question, index) {
     const parsedText = nlp(question);
     // get tokenized sentence
     const tokenizedSent = parsedText.out('terms');
     // check if valid
-    // const checkResult = indexes.map(ele => {
-    //     // check if selected words are Noun, Name, Place or Value
-    //     if(tokenizedSent[ele].tags.indexOf('Noun') >= 0 || tokenizedSent[ele].tags.indexOf('Value') >= 0 || tokenizedSent[ele].tags.indexOf('People') >= 0 || tokenizedSent[ele].tags.indexOf('Place') >= 0) {
-    //         // return {valid: true, word: tokenizedSent[ele].normal};
-    //         return true;
-    //     } else {
-    //         // return {valid: false, word: tokenizedSent[ele].text};
-    //         return tokenizedSent[ele].text;
-    //     }
-    // });
     let checkResult;
     if(tokenizedSent[index].tags.indexOf('Noun') >= 0 || tokenizedSent[index].tags.indexOf('Value') >= 0 || tokenizedSent[index].tags.indexOf('People') >= 0 || tokenizedSent[index].tags.indexOf('Place') >= 0) {
-        // return {valid: true, word: tokenizedSent[ele].normal};
+        // return true if valid
         checkResult = true;
     } else {
-        // return {valid: false, word: tokenizedSent[ele].text};
+        // return the invalid word if the question is invalid
         checkResult = tokenizedSent[index].text;
     }
 
     return checkResult;
 }
 
+// create a string of question based on the flashcard and the bland index
 function createQuestion(flashCard, index) {
     const parsedText = nlp(flashCard);
     const tokenizedSent = parsedText.out('terms');
     let question = '';
     for(let i = 0; i < tokenizedSent.length; i++) {
-        // if(indexes.indexOf('' + i) >= 0) {
         if(index === i) {
             let blank = "(_______)";
             question += blank;

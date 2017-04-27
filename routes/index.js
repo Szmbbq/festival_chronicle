@@ -8,12 +8,7 @@ router.get('/guest', function(req, res) {
 
 // get homepage
 router.get('/', ensureAuthenticated, function(req, res) {
-    // Question.find({}, (err, questions) => {
-    //     if(err) {
-    //         console.log(err);
-    //     }
-    //     res.render('index', {name: req.user.local.username || req.user.google.name, questions: questions});
-    // });
+    // render the homepage with the username
     res.render('index', {name: req.user.local.username || req.user.google.name});
 });
 

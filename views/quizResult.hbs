@@ -1,5 +1,19 @@
 {{#if thisTime}}
 <h2>Quiz Result</h2>
+<h4>The answer keys are:</h4>
+
+<ol>
+    {{#each keys}}
+        <li>{{this}}</li>
+    {{/each}}
+</ol>
+<h4>Your answers are:</h4>
+<ol>
+    {{#each answers}}
+        <li>{{this}}</li>
+    {{/each}}
+</ol>
+
 <h4>The total number of questions is {{thisTime.numOfQuestions}}. 
     You answered {{thisTime.correct}} questions right. 
     The accuracy is {{thisTime.accuracy}}%.</h4>

@@ -18,13 +18,6 @@ const userRoutes = require('./routes/handleUsers');
 const functionsRoutes = require('./routes/userOptions.js');
 
 
-
-
-
-
-
-
-
 // enable sessions
 const session = require('express-session');
 const sessionOptions = {
@@ -65,15 +58,6 @@ app.use(expressValidator({
 // Connect Flash
 app.use(flash());
 
-// // Global Vars
-// app.use(function (req, res, next) {
-//   res.locals.success_msg = req.flash('success_msg');
-//   res.locals.error_msg = req.flash('error_msg');
-//   res.locals.error = req.flash('error');
-//   res.locals.user = req.user || null;
-//   next();
-// });
-
 // Passport init
 app.use(passport.initialize());
 app.use(passport.session());
@@ -83,11 +67,6 @@ app.use('/', indexRoutes);
 app.use('/', userRoutes);
 app.use('/', functionsRoutes);
 
-
-
-app.get('/login', (req, res) => {
-    res.render('login');
-});
 
 
 
