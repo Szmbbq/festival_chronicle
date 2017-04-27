@@ -15,11 +15,11 @@ Festival Chronicle is a web app that will allow users to learn basic knowledge o
 
 
 
-The application will store Users, Festivals, Questions
+The application will store Users and Questions
 
-* users can create multiple questions (via references) which can be modiefied. 
-* each festival can have multiple questions (by embedding)
+* users can create questions and modify them. 
 * each user has a stats recording his/her score (by embedding)
+* each question has a flahscard for viewing, a number indicating the gap index
 
 
 
@@ -34,24 +34,15 @@ An Example User:
 }
 ```
 
-An Example Festival with Embedded Questions:
+An Example Question:
 
 ```javascript
-{
-  name: "Christmas", // name of the festival
-  questions: [
-    { 
-        createdBy: // reference to the user object of the user created this question
-        flashcard: "Christmas is an annual festival commemorating the birth of Jesus Christ, observed most commonly on December 25th as a religious and cultural celebration.", // flashcard of this question
-        blank: [0, 7] // array of indexes of blanks set by the question creater
-    },
-    { 
-        createdBy: // reference to the user object of the user created this question
-        flashcard: "December 24th is called Christmas Eve.", // flashcard of this question
-        blank: [4, 5] // array of indexes of blanks set by the question creater
-    },
-  ]
+{ 
+    flashcard: "Christmas is an annual festival commemorating the birth of Jesus Christ, observed most commonly on December 25th as a religious and cultural celebration.", // flashcard of this question
+    blank: 0 // index of blanks set by the question creater
+    key: "christmas" // the normal form of the word derived using nlp module compromise
 }
+
 ```
 
 
