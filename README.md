@@ -19,7 +19,7 @@ The application will store Users and Questions
 
 * users can create questions and modify them. 
 * each user has a stats recording his/her score (by embedding)
-* each question has a flahscard for viewing, a number indicating the gap index
+* each question has a flahscard for viewing, a number indicating the gap index and a key string.
 
 
 
@@ -46,8 +46,8 @@ An Example Question:
 ```
 
 
-## [Link to Commented First Draft Schema](db.js) 
-
+## [Link to User Schema](models/user.js)
+## [Link to Question Schema](models/question.js)
 
 
 ## Wireframes
@@ -58,21 +58,21 @@ An Example Question:
 
 ![list](documentation/login.png)
 
-/create question - page for user to create his question
+/flashcards - page for user to view existing flashcards
+
+![list](documentation/flashcards.png)
+
+/createQuestion - page for user to create his question
 
 ![list](documentation/createQuestion.png)
 
-/festivals - page for showing existing festivals, list of links to flashcards page related to that festival
+/deleteQuestion - page for user to delete existing questions
 
-![list](documentation/festivals.png)
+![list](documentation/deleteQuestion.png)
 
-/:festivalName - page for lists of flashcards to that specific festival 
+/quiz - page for user to take quizzes
 
-![list](documentation/christmas.png)
-
-/quizzes - page for user to take quizzes
-
-![list](documentation/quizzes.png)
+![list](documentation/quiz.png)
 
 /ranking - page for user to view ranking
 
@@ -91,7 +91,7 @@ The site map
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
 3. as a user, I can create a new question relate to a specific festival
-4. as a user, I can view all of the existing flashcards in the database categorized by festivals
+4. as a user, I can view all of the existing flashcards in the database
 5. as a user, I can take quizzes made of questions in the database
 6. as a user, I can check the ranking list
 
@@ -101,13 +101,11 @@ The site map
 
 * (5 points) Integrate user authentication
     * I'm going to be using passport for user authentication
-    * see <code>cs.nyu.edu/undecided/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/undecided/ait-final/login</code> for login page
-    * path will be set up after instructor gives the individual port
+    * Local and Google Strategy will be used
 * (3 points) Unit testing with JavaScript
     * use Mocha for unit testing
-* (2 points) Use a CSS preprocesser
-    * use Sess as CSS preprocesser
+* (1-6 points) Use a Javascript library
+    * use compromise as NLP tool to help create a valid question
 
 
 
@@ -121,7 +119,8 @@ The site map
 
 
 1. [passport.js authentication docs](http://passportjs.org/docs)
-2. [tutorial on Mocha](https://github.com/mochajs/mocha)
-3. [tutorial on Sess](http://sass-lang.com/guide)
+2. [passport google authentication](https://github.com/BrentAureli/Youtube-Tutorials/tree/master/NodeJS%20Tutorials/Tutorial%2011%20-%20Google%20OAuth)
+3. [tutorial on Mocha](https://github.com/mochajs/mocha)
+4. [compromise docs](https://github.com/nlp-compromise/compromise)
 
 
