@@ -1,17 +1,27 @@
-<form method="POST" action="/createQuestion">
-    <div>
+{{#if invalidWords}}
+    {{#each invalidWords}}
+        <h4>"{{this}}" is not a name/place/number(value)/noun.</h4>
+    {{/each}}
+{{/if}}
+
+<form method="POST" action="/createQuestion" style="margin-left: 1em">
+    <div style="margin-top: 1em">
         The flashcard: <input type="text" name="flashcard" style="height:50px;width:500px;font-size:14pt;">
     </div>
-    <div>
-        Blank placed at:(enter the index of word to be replaced by blank) <input type="number" name="blank">
+    <div style="margin-top: 1em">
+        Blank placed at: <input type="number" name="blank">
     </div>
-    <div>
+    <div style="margin-top: 1em; width: 350px;">
+    Instruction: Please enter the index of word to be replaced by blank. The selected word should be nouns (name), numbers (date) and locations. Be careful, festival names is sometimes treated as one word.
+    </div>
+    <div style="margin-top: 1em">
         Relevent Festival: <input type="text" name="festival">
     </div>
-    <div>
+    <div style="margin-left: 3em; margin-top: 1em">
         <input type="submit" value="Submit your question!">
     </div>
 </form>
 
-
-<a href="/">Go back to your homepage</a>
+<div style="margin-left: 1em; margin-top: 3em;">
+    <a href="/">Go back to your homepage</a>
+</div>

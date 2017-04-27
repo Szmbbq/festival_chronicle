@@ -1,0 +1,29 @@
+{{#if users}}
+    <h4 style="margin-left: 1em">User Ranked by {{rankBy}}</h4>
+    <ol style="margin-left: 1em">
+        {{#each users}}
+            {{#if this.local.username}}
+                <li style="margin-top: 1em">{{this.local.username}}</li>
+            {{else}}
+                <li style="margin-top: 1em">{{this.google.name}}</li>
+            {{/if}}
+        {{/each}}
+    </ol>
+
+    <h4 style="margin-left: 1em">Select how to rank</h4>
+    <form method="GET" action="" id="rankByForm" style="margin-left: 1em">
+        <div>
+            Ranking by: <select name="rankBy" form="rankByForm">
+                <option value="accuracy">Accuracy</option>
+                <option value="correctNum">Number of correct answers</option>
+                <option value="questionTake">Number of questions took</option>
+                <input type="submit" value="Rank">
+            </select>
+        </div>
+    </form>
+{{/if}}
+
+
+<div style="margin-left: 1em; margin-top: 3em">
+    <a href="/">Go back to your homwpage</a>
+</div>

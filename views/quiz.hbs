@@ -1,0 +1,19 @@
+{{#if questions}}
+    <form method="POST" action="/quizResult" style="margin-left: 1em">
+        <h4>Quiz Time</h4>
+        <ol>
+            {{#each questions}}
+            <li style="margin-top: 1em">{{this}}<input type="text" name="answers"></li>
+            {{/each}}
+        </ol>
+        <input type="hidden" name="keys" value={{keys}}>
+        <input type="submit" value="Submit your answers!">
+    </form>
+{{else}}
+    <h4>No Questions Exist. Go and Create One!</h4>
+{{/if}}
+
+
+<div style="margin-left: 1em; margin-top: 3em">
+    <a href="/">Go back to your homwpage</a>
+</div>

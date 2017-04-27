@@ -15,7 +15,7 @@ require('./db');
 // bring in routes
 const indexRoutes = require('./routes/index');
 const userRoutes = require('./routes/handleUsers');
-const functionsRoutes = require('./routes/functions.js');
+const functionsRoutes = require('./routes/userOptions.js');
 
 
 

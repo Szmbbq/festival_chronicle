@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const Question = new mongoose.Schema({
   createdBy: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
   flashcard: {type: String, required: true},
-  blank: Number
+  blank: {type: Number, required: true},
+  key: {type: String, required: true}
 });
 
 //register schema

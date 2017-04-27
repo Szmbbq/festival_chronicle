@@ -1,0 +1,15 @@
+{{#if thisTime}}
+<h2>Quiz Result</h2>
+<h4>The total number of questions is {{thisTime.numOfQuestions}}. 
+    You answered {{thisTime.correct}} questions right. 
+    The accuracy is {{thisTime.accuracy}}%.</h4>
+{{/if}}
+{{#if accumulative}}
+<h2>Accumulative Stats</h2>
+<h4>The accumulative number of questions took up to this point is {{accumulative.questionTake}},
+    with {{accumulative.correctNum}} questions answered correctly.
+    The accumulative accuracy is {{accumulative.accuracy}}%.</h4>
+{{/if}}
+
+<a href="/ranking">Check the Ranking List!</a> | <a href="/">Back to homepage</a>
+

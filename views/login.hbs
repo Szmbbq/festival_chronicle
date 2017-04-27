@@ -1,7 +1,7 @@
 {{#if err}}
     <h4>{{err}}</h4>
 {{/if}}
-<form action="/login" method="post">
+<form action="/login" method="post" style="margin-left: 2em">
     <div>
         <label>Username:</label>
         <input type="text" name="username"/>
@@ -10,8 +10,10 @@
         <label>Password:</label>
         <input type="password" name="password"/>
     </div>
-    <div>
+    <div style="margin-left: 4em">
         <input type="submit" value="Log In"/>
     </div>
 </form>
-<a href="/register">Register an account!</a> or <a href="/auth/google">Sign In with Google</a>
+<div style="margin-left: 1em">
+    <a href="/register">Register an account!</a> or <a href="/auth/google">Sign In with Google</a>
+</div>

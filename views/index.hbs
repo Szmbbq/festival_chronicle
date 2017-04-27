@@ -1,35 +1,26 @@
-<h3>Hello {{name}}!</h3><a href="/logout">Logout</a>
-{{!--<form method="POST" action="/createQuestion">
-    <div>
-        The flashcard: <input type="text" name="flashcard" style="height:50px;width:500px;font-size:14pt;">
-    </div>
-    <div>
-        Blank placed at:(enter the index of word to be replaced by blank) <input type="number" name="blank">
-    </div>
-    <div>
-        Relevent Festival: <input type="text" name="festival">
-    </div>
-    <div>
-        <input type="submit" value="Submit your question!">
-    </div>
-</form>
+<h3 style="margin-left: 2em">Hello {{name}}!</h3>
 
-<form method="POST" action="/deleteQuestion" id="deleteForm">
-    <div>
-        Choose one to delete: <select name="delete" form="deleteForm">
-            {{#each questions}}
-                <option value={{this._id}}>{{this.flashcard}}</option>
-            {{/each}}
-            <input type="submit" value="Delete">
-        </select>
-    </div>
-</form>--}}
-</br>
-<a href="/flashcards">Review Flashcards</a>
-</br>
-<a href="/createQuestion">Create a new question</a>
-</br>
-<a href="/deleteQuestion">Delete existing questions</a>
+<ul style="margin-left: 1.5em">
+    <li style="margin-top: 1em">
+        <a href="/flashcards">Review Flashcards</a>
+    </li>
+    <li style="margin-top: 1em">
+        <a href="/createQuestion">Create a new question</a>
+    </li>
+    <li style="margin-top: 1em">
+        <a href="/deleteQuestion">Delete existing questions</a>
+    </li>
+    <li style="margin-top: 1em">
+        <a href="/quiz">Take a quiz</a>
+    </li>
+    <li style="margin-top: 1em">
+        <a href="/ranking">Show the ranking list</a>
+    </li>
+</ul>
+
+<h3 style="margin-left: 3em; margin-top: 5em">
+    <a href="/logout">Logout</a>
+</h3>
 
 
 
